@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Start"
         tools:targetApi="31">
+        <activity android:name=".AddPillActivity"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true">

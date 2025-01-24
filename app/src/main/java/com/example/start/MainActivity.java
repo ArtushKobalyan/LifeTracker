@@ -14,10 +14,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+
+
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
+
+    private PillViewModel pillViewModel;
     private FrameLayout frameLayout;
 
 
@@ -33,51 +38,47 @@ public class MainActivity extends AppCompatActivity {
         });
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = findViewById(R.id.bottonNavView);
-        frameLayout = findViewById(R.id.frameLayout);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        frameLayout = findViewById(R.id.fragment_container);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
+                Fragment selectedFragment = null;
 
-                if (itemId ==R.id.navHome) {
-                    loadFragment(new HomeFragment(), false);
-
-
-                } else if (itemId == R.id.navAdd) {
-                    loadFragment(new AddFragment(), false);
-
-
-                } else if (itemId == R.id.navContacs) {
-                    loadFragment(new ContactsFragment(), false);
-
-                } else if (itemId == R.id.navSettings) {
-                    loadFragment(new SettingFragment(), false);
-
-                } else if (itemId == R.id.navProfile) {
-                    loadFragment(new ProfileFragment(), false);
-
+                int itemID = item.getItemId();
+                if (itemID == R.id.navHome) {
+                    selectedFragment = new HomeFragment();
+                } else if (itemID == R.id.navContacs) {
+                    selectedFragment = new ContactsFragment();
+                } else if (itemID == R.id.navSettings) {
+                    selectedFragment = new SettingFragment();
+                } else if (itemID == R.id.navProfile) {
+                    selectedFragment = new ProfileFragment();
                 }
-                return false;
 
+                if (selectedFragment != null) {
+                    loadFragment(selectedFragment);
+                    return true; // Важно вернуть true, чтобы система знала, что нажатие обработано
+                }
+
+                return false;
             }
         });
-        loadFragment(new HomeFragment(), true);
 
-
+        // Загружаем начальный фрагмент
+        loadFragment(new HomeFragment());
     }
 
-    private void loadFragment(Fragment fragment, boolean isAppInitialized) {
+
+    private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (isAppInitialized) {
-            fragmentTransaction.add(R.id.frameLayout, fragment);
-        } else {
-            fragmentTransaction.replace(R.id.frameLayout, fragment);
-        }
-
+        fragmentTransaction.replace(R.id.fragment_container, fragment); // Заменяем, а не добавляем
         fragmentTransaction.commit();
-
     }
 }
+
+
+
+
