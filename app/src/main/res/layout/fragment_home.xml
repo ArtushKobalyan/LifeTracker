@@ -32,7 +32,7 @@
         android:layout_marginBottom="30dp"
         android:backgroundTint="#1E88E5"
         android:layout_alignParentBottom="true"
-        android:layout_margin="70dp" />
+        android:layout_margin="80dp" />
 
 
 </RelativeLayout>
