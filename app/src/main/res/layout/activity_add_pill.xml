@@ -7,6 +7,7 @@
     android:background="#F7FAFC"
     tools:context=".AddPillActivity">
 
+    <!-- Заголовок -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -17,84 +18,179 @@
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
+    <!-- Поле ввода названия таблетки -->
     <EditText
         android:id="@+id/pillNameEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_background"
         android:hint="Название таблетки"
         android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:paddingHorizontal="12dp"
+        android:textColor="#333333"
+        android:textColorHint="#9E9E9E"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        android:layout_marginHorizontal="16dp" />
 
+    <!-- Поле ввода количества -->
     <EditText
         android:id="@+id/pillQuantityEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
         android:hint="Количество"
         android:inputType="number"
-        android:minHeight="48dp"
-        android:padding="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:paddingHorizontal="12dp"
+        android:textColor="#333333"
+        android:textColorHint="#9E9E9E"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pillNameEditText" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pillNameEditText"
+        android:layout_marginHorizontal="16dp" />
 
+    <!-- Поле ввода дозы -->
     <EditText
         android:id="@+id/pillDoseEditText"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
         android:hint="Доза"
         android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:padding="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:paddingHorizontal="12dp"
+        android:textColor="#333333"
+        android:textColorHint="#9E9E9E"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pillQuantityEditText" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pillQuantityEditText"
+        android:layout_marginHorizontal="16dp" />
 
+    <!-- Выбор дней недели -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/daysChipGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:singleSelection="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pillDoseEditText">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/mondayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пн"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/tuesdayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вт"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/wednesdayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ср"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/thursdayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Чт"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/fridayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пт"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/saturdayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сб"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/sundayChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вс"
+            app:chipBackgroundColor="@color/white"
+            app:chipStrokeColor="@color/black"
+            app:chipStrokeWidth="1dp"
+            app:checkedIconEnabled="false"
+            app:checkedIconVisible="false" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Кнопка выбора времени -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/setTimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Выбрать время"
-        android:textSize="16sp"
-        android:layout_marginTop="5dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/botton_background"
+        android:text="Выбрать время"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/pillDoseEditText"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="12dp"/>
+        app:layout_constraintTop_toBottomOf="@id/daysChipGroup" />
 
+    <!-- Кнопка сохранения -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Сохранить"
-        android:layout_marginTop="5dp"
-        android:textSize="16sp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/botton_background"
+        android:text="Сохранить"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/setTimeButton"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="12dp"/>
+        app:layout_constraintTop_toBottomOf="@id/setTimeButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
