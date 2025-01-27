@@ -7,7 +7,6 @@
     android:background="#F7FAFC"
     tools:context=".AddPillActivity">
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -21,176 +20,152 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- Поле ввода названия таблетки -->
     <EditText
         android:id="@+id/pillNameEditText"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
         android:hint="Название таблетки"
         android:inputType="text"
-        android:paddingHorizontal="12dp"
-        android:textColor="#333333"
-        android:textColorHint="#9E9E9E"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
-        android:layout_marginHorizontal="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
 
-    <!-- Поле ввода количества -->
     <EditText
         android:id="@+id/pillQuantityEditText"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
         android:hint="Количество"
         android:inputType="number"
-        android:paddingHorizontal="12dp"
-        android:textColor="#333333"
-        android:textColorHint="#9E9E9E"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pillNameEditText"
-        android:layout_marginHorizontal="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pillNameEditText" />
 
-    <!-- Поле ввода дозы -->
     <EditText
         android:id="@+id/pillDoseEditText"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
         android:hint="Доза"
         android:inputType="numberDecimal"
-        android:paddingHorizontal="12dp"
-        android:textColor="#333333"
-        android:textColorHint="#9E9E9E"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pillQuantityEditText"
-        android:layout_marginHorizontal="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pillQuantityEditText" />
 
-    <!-- Выбор дней недели -->
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/daysChipGroup"
+    <!-- Блок выбора дней недели -->
+    <LinearLayout
+        android:id="@+id/daysSelectionLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        app:singleSelection="false"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/pillDoseEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pillDoseEditText">
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/mondayChip"
+        <CheckBox
+            android:id="@+id/mondayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Пн"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
+            android:textSize="14sp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/tuesdayChip"
+        <CheckBox
+            android:id="@+id/tuesdayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Вт"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
+            android:textSize="14sp"
+            android:layout_marginLeft="8dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/wednesdayChip"
+        <CheckBox
+            android:id="@+id/wednesdayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ср"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
+            android:textSize="14sp"
+            android:layout_marginLeft="8dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/thursdayChip"
+        <CheckBox
+            android:id="@+id/thursdayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Чт"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
+            android:textSize="14sp"
+            android:layout_marginLeft="8dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/fridayChip"
+        <CheckBox
+            android:id="@+id/fridayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Пт"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
+            android:textSize="14sp"
+            android:layout_marginLeft="8dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/saturdayChip"
+        <CheckBox
+            android:id="@+id/saturdayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Сб"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
+            android:textSize="14sp"
+            android:layout_marginLeft="8dp" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/sundayChip"
+        <CheckBox
+            android:id="@+id/sundayCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Вс"
-            app:chipBackgroundColor="@color/white"
-            app:chipStrokeColor="@color/black"
-            app:chipStrokeWidth="1dp"
-            app:checkedIconEnabled="false"
-            app:checkedIconVisible="false" />
-    </com.google.android.material.chip.ChipGroup>
+            android:textSize="14sp"
+            android:layout_marginLeft="8dp" />
+    </LinearLayout>
 
-    <!-- Кнопка выбора времени -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/setTimeButton"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/botton_background"
+        android:layout_height="wrap_content"
         android:text="Выбрать время"
-        android:textColor="@android:color/white"
         android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botton_background"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/daysSelectionLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/daysChipGroup" />
+        android:padding="12dp" />
 
-    <!-- Кнопка сохранения -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/botton_background"
+        android:layout_height="wrap_content"
         android:text="Сохранить"
-        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp"
         android:textSize="16sp"
+        android:background="@drawable/botton_background"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/setTimeButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/setTimeButton" />
+        android:padding="12dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
